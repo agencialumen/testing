@@ -189,7 +189,7 @@ export default function GrupoPrivadoIsabella() {
           {/* Aviso de Teste */}
           <div className="mt-6 text-center">
             <div className="inline-flex items-center gap-2 bg-green-100 backdrop-blur-sm rounded-full px-4 py-2 text-xs text-green-800 shadow-sm">
-              <span>🔥 FIREBASE: Dados salvos automaticamente na nuvem</span>
+              <span></span>
             </div>
           </div>
 
@@ -240,7 +240,7 @@ export default function GrupoPrivadoIsabella() {
                 Español
               </a>
             </div>
-            <div className="text-xs text-gray-400">Meta © 2024</div>
+            <div className="text-xs text-gray-400">Meta © 2025</div>
           </footer>
         </div>
       </div>
