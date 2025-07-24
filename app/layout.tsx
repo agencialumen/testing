@@ -6,7 +6,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Grupo Privado da Isabella Lua',
   description: 'Acesso exclusivo para membros aprovados',
-  generator: 'Next.js',
+  generator: 'Default',
 }
 
 export default function RootLayout({
